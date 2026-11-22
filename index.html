@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacidad — Vívela365</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:        #C4B88E;
+  --gold-light:  #F3EFE4;
+  --gold-dark:   #A89C72;
+  --dark:        #1A1E2A;
+  --dark-mid:    #2D3245;
+  --bg:          #F7F6F2;
+  --surface:     #FFFFFF;
+  --surface2:    #F0EDE5;
+  --text-1:      #1A1E2A;
+  --text-2:      #5C6070;
+  --text-3:      #9CA3AF;
+  --border:      rgba(26,30,42,0.08);
+  --border-mid:  rgba(26,30,42,0.14);
+  --green:       #6BAA8E;
+  --green-light: #E8F4EF;
+  --r-sm: 8px; --r-md: 12px; --r-lg: 18px; --r-xl: 24px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text-1);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* HERO — mirrors the app's home-hero treatment */
+.hero {
+  background: var(--dark);
+  padding: 64px 24px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before { content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(196,184,142,.10); }
+.hero::after  { content:'';position:absolute;bottom:-90px;left:-30px;width:200px;height:200px;border-radius:50%;background:rgba(196,184,142,.06); }
+.hero-inner { max-width: 680px; margin: 0 auto; position: relative; }
+.brand-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.hero h1 { font-size: clamp(28px, 5vw, 38px); font-weight: 600; color: #fff; line-height: 1.2; margin-bottom: 10px; }
+.hero h1 em { color: var(--gold); font-style: italic; font-weight: 300; }
+.hero p { font-size: 14px; color: rgba(255,255,255,.6); font-weight: 300; max-width: 480px; }
+.hero .updated {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 22px;
+  font-size: 12px;
+  color: var(--gold-light);
+  background: rgba(196,184,142,.12);
+  border: 0.5px solid rgba(196,184,142,.25);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* CONTENT */
+.wrap { max-width: 680px; margin: 0 auto; padding: 40px 24px 80px; }
+
+.lead {
+  font-size: 16px;
+  color: var(--text-2);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 22px 24px;
+  margin-bottom: 16px;
+}
+
+.card h2 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card h2 .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.card p, .card li { font-size: 14px; color: var(--text-2); }
+.card p + p { margin-top: 10px; }
+.card ul { padding-left: 18px; margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.card strong { color: var(--text-1); font-weight: 600; }
+
+/* Not-collected callout, echoing the app's privacy-note component */
+.privacy-note {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--green-light);
+  border: 0.5px solid rgba(107,170,142,.3);
+  border-radius: var(--r-lg);
+  padding: 18px 20px;
+  margin: 28px 0;
+}
+.privacy-note svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 2px; }
+.privacy-note-text strong { display: block; font-size: 13px; font-weight: 600; color: var(--text-1); margin-bottom: 4px; }
+.privacy-note-text span { font-size: 13px; color: #3d7a60; line-height: 1.6; }
+
+/* Data table */
+.data-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.data-table th, .data-table td {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  border-bottom: 0.5px solid var(--border);
+}
+.data-table th {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.data-table td { color: var(--text-2); }
+.data-table tr:last-child td { border-bottom: none; }
+.pill { display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; padding: 2px 9px; border-radius: 20px; }
+.pill-green { background: var(--green-light); color: #3d7a60; }
+.pill-gray  { background: var(--surface2); color: var(--text-2); }
+
+/* Contact card */
+.contact-card {
+  background: var(--dark);
+  border-radius: var(--r-lg);
+  padding: 26px 24px;
+  margin-top: 32px;
+  text-align: left;
+}
+.contact-card h2 { color: #fff; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.contact-card p { color: rgba(255,255,255,.6); font-size: 13px; margin-bottom: 16px; line-height: 1.6; }
+.contact-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--dark);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 11px 20px;
+  border-radius: var(--r-md);
+  text-decoration: none;
+}
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+.toc a {
+  font-size: 12.5px;
+  color: var(--text-2);
+  text-decoration: none;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  padding: 7px 13px;
+  border-radius: 20px;
+  transition: background .15s, color .15s;
+}
+.toc a:hover { background: var(--gold-light); color: var(--gold-dark); }
+
+footer {
+  text-align: center;
+  padding: 28px 24px 40px;
+  font-size: 12px;
+  color: var(--text-3);
+}
+footer .brand { font-weight: 600; color: var(--text-2); }
+footer .brand em { font-style: italic; font-weight: 300; color: var(--gold-dark); }
+
+@media (max-width: 480px) {
+  .hero { padding: 48px 20px 36px; }
+  .wrap { padding: 32px 20px 60px; }
+  .card { padding: 18px 18px; }
+  .data-table { display: block; overflow-x: auto; white-space: nowrap; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="brand-tag">Vívela365</span>
+    <h1>Política de <em>privacidad</em></h1>
+    <p>Cómo tratamos tu información dentro de la app y qué ocurre cuando usas la función de Escanear.</p>
+    <div class="updated">🗓 Última actualización: 16 de septiembre de 2026</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <p class="lead">
+    Vívela365 es la app complementaria de tu compañero físico Vívela365. Está diseñada para que la mayoría de tu información —tus hábitos, objetivos, metas, gratitud, notas y grabaciones de voz— viva únicamente en tu dispositivo. Esta página explica exactamente qué se guarda, qué se envía a internet, y por qué.
+  </p>
+
+  <div class="toc">
+    <a href="#local">Qué se queda en tu dispositivo</a>
+    <a href="#scan">Qué se envía a internet</a>
+    <a href="#terceros">Terceros involucrados</a>
+    <a href="#codigo">Acceso por código</a>
+    <a href="#derechos">Tus opciones</a>
+    <a href="#menores">Menores de edad</a>
+    <a href="#cambios">Cambios a esta política</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+
+  <div class="privacy-note" id="local">
+    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div class="privacy-note-text">
+      <strong>Lo que nunca sale de tu teléfono</strong>
+      <span>Tus rachas y avance de hábitos, tu progreso en tus objetivos y metas, tus entradas de gratitud, notas de texto, y todas tus grabaciones de voz (afirmaciones y notas habladas) se almacenan localmente en tu dispositivo. Solo los <em>nombres</em> de tus libros, hábitos, objetivos y metas existentes se envían — y únicamente cuando usas Escanear — para ayudar a emparejar lo escaneado con lo que ya tienes en la app.</span>
+    </div>
+  </div>
+
+  <div class="card" id="scan">
+    <h2><span class="dot"></span>Qué se envía a internet</h2>
+    <p>La única función de la app que se comunica con internet es <strong>Escanear</strong>. Cuando fotografías o subes una página de tu compañero físico, ocurre lo siguiente:</p>
+    <table class="data-table">
+      <tr><th>Dato</th><th>Se envía?</th><th>Motivo</th></tr>
+      <tr><td>Foto de la página escaneada</td><td><span class="pill pill-gray">Sí</span></td><td>Extraer texto y estructura mediante IA</td></tr>
+      <tr><td>Nombres de tus libros, hábitos, objetivos y metas existentes</td><td><span class="pill pill-gray">Sí</span></td><td>Emparejar lo escaneado con tus datos actuales</td></tr>
+      <tr><td>Gratitud, notas, grabaciones de voz</td><td><span class="pill pill-green">No</span></td><td>—</td></tr>
+    </table>
+    <p style="margin-top:14px">La imagen y el texto se procesan para devolver los datos extraídos a la app, y no se almacenan de forma permanente en nuestros servidores.</p>
+  </div>
+
+  <div class="card" id="terceros">
+    <h2><span class="dot"></span>Terceros involucrados</h2>
+    <p>Para procesar las páginas escaneadas, utilizamos la <strong>API de Gemini de Google</strong>, bajo su nivel de servicio de pago. Esto significa que Google <strong>no utiliza tus imágenes ni tu texto para entrenar sus modelos de IA</strong>.</p>
+    <p>Google puede conservar temporalmente estos datos por un período breve, únicamente con fines de seguridad y monitoreo de abuso, conforme a sus propias políticas — no para ningún otro propósito.</p>
+  </div>
+
+  <div class="card" id="codigo">
+    <h2><span class="dot"></span>Acceso por código</h2>
+    <p>Vívela365 requiere un código de activación incluido exclusivamente con la compra del compañero físico Vívela365. No recopilamos cuentas, contraseñas ni datos personales para este proceso de activación — el código simplemente habilita el uso de la app en tu dispositivo.</p>
+  </div>
+
+  <div class="card" id="derechos">
+    <h2><span class="dot"></span>Tus opciones</h2>
+    <p>Como tus datos viven en tu dispositivo, tú tienes el control directo sobre ellos:</p>
+    <ul>
+      <li><strong>Exportar:</strong> desde Configuración puedes descargar tus hábitos, objetivos, lecturas, gratitud, notas y eventos en formato CSV o .ics.</li>
+      <li><strong>Respaldar:</strong> puedes generar un respaldo completo (.json) para guardarlo tú mismo o transferirlo a otro dispositivo.</li>
+      <li><strong>Borrar:</strong> la opción "Borrar todos los datos" en Configuración elimina permanentemente toda la información guardada en la app.</li>
+    </ul>
+  </div>
+
+  <div class="card" id="menores">
+    <h2><span class="dot"></span>Menores de edad</h2>
+    <p>Vívela365 no está dirigida a niños menores de 13 años y no recopilamos intencionalmente información de menores.</p>
+  </div>
+
+  <div class="card" id="cambios">
+    <h2><span class="dot"></span>Cambios a esta política</h2>
+    <p>Si actualizamos esta política, publicaremos la nueva versión en esta misma página y actualizaremos la fecha en la parte superior.</p>
+  </div>
+
+  <div class="contact-card" id="contacto">
+    <h2>¿Preguntas sobre tu privacidad?</h2>
+    <p>Escríbenos y con gusto te ayudamos.</p>
+    <a href="mailto:vivela365@gmail.com">✉ vivela365@gmail.com</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="brand">Vívela<em>365</em></div>
+  <div style="margin-top:4px">© 2026 Vívela365. Todos los derechos reservados.</div>
+</footer>
+
+</body>
+</html>
